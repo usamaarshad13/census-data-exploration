@@ -1,15 +1,9 @@
 # Census and population data exploration
 # Run from the repository root: Rscript analysis.R
 
-required_packages <- c("tidyverse")
-missing_packages <- required_packages[!vapply(required_packages, requireNamespace,
-                                               logical(1), quietly = TRUE)]
-if (length(missing_packages) > 0) {
-  stop("Install required package(s): ", paste(missing_packages, collapse = ", "))
-}
-suppressPackageStartupMessages(library(tidyverse))
-
-dir.create("images", showWarnings = FALSE)
+library(ggplot2)
+library(tidyverse)
+library(psych)
 
 # 1. Adult income dataset: inspect numeric and categorical distributions.
 adult <- read_csv("data/adult.csv", show_col_types = FALSE,
